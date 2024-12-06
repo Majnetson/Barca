@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osiągnięcia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<header class="main-header">
+    <img src="header.png" alt="Nagłówek" class="header-image">
+</header>
+
+<div class="main-container">
+    <!-- Lewa sekcja: Treść osiągnięć -->
+    <section class="content-panel">
+        <h2 class="section-title">Najważniejsze Osiągnięcia FC Barcelona</h2>
+        <p class="section-description">
+            FC Barcelona jest jednym z najbardziej utytułowanych klubów na świecie. Poznaj listę 
+            najważniejszych trofeów, które świadczą o wielkości tego klubu.
+        </p>
+        <div class="achievements-content">
+            <ul class="achievements-list">
+                <li><strong>La Liga:</strong> 26 tytułów mistrzowskich</li>
+                <li><strong>Puchar Króla:</strong> 31 zwycięstw</li>
+                <li><strong>Liga Mistrzów UEFA:</strong> 5 razy triumf</li>
+                <li><strong>Superpuchar Europy:</strong> 5 zwycięstw</li>
+                <li><strong>FIFA Club World Cup:</strong> 3 razy najlepszy klub świata</li>
+                <li><strong>Puchar Zdobywców Pucharów:</strong> 4 triumfy</li>
+            </ul>
+            <button id="toggleAchievements" style="margin: 10px;">Pokaż więcej</button>
+        </div>
+    </section>
+
+    <!-- Prawa sekcja: Menu -->
+    <aside class="menu-panel">
+        <h2 class="menu-title">Menu:</h2>
+        <div class="menu-tiles">
+            <a href="index.html" class="menu-tile">Strona Główna</a>
+            <a href="tabela.html" class="menu-tile">Tabela</a>
+            <a href="historia-klubu.html" class="menu-tile">Historia Klubu</a>
+            <a href="osiagniecia.html" class="menu-tile active">Osiągnięcia</a>
+            <a href="stadion.html" class="menu-tile">Stadion</a>
+            <a href="pilkarze.html" class="menu-tile">Piłkarze</a>
+        </div>
+    </aside>
+</div>
+
+<footer class="main-footer">
+    <img src="stopka.png" alt="Stopka" class="footer-image">
+</footer>
+
+<script>
+$(document).ready(function() {
+    // Ukryj część listy na początku (pokaż tylko 3 punkty)
+    $('.achievements-list li').slice(3).hide();
+
+    // Funkcja rozwijania i zwijania listy
+    $('#toggleAchievements').click(function() {
+        if ($('.achievements-list li:hidden').length > 0) {
+            $('.achievements-list li:hidden').slideDown();
+            $(this).text('Pokaż mniej');
+        } else {
+            $('.achievements-list li').slice(3).slideUp();
+            $(this).text('Pokaż więcej');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

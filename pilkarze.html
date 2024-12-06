@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piłkarze</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <img src="header.png" alt="Nagłówek" class="header-image">
+</header>
+
+<div class="main-container">
+    <!-- Lewa sekcja: Lista piłkarzy -->
+    <section class="content-panel">
+        <h2 class="section-title">Obecny Skład FC Barcelony</h2>
+        <p class="section-description">
+            Poznaj zawodników FC Barcelony, którzy walczą na boiskach o sukcesy klubu. Użyj wyszukiwarki, aby szybko znaleźć ulubionego gracza.
+        </p>
+
+        <!-- Wyszukiwarka -->
+        <input type="text" id="playerFilter" class="player-search" placeholder="Wyszukaj zawodnika..." onkeyup="filterPlayers()">
+        
+        <!-- Lista piłkarzy -->
+        <ul id="playerList" class="player-list">
+            <li><strong>Robert Lewandowski</strong> - Napastnik</li>
+            <li><strong>Marc-André ter Stegen</strong> - Bramkarz</li>
+            <li><strong>Frenkie de Jong</strong> - Pomocnik</li>
+            <li><strong>Ronald Araújo</strong> - Obrońca</li>
+            <li><strong>Pablo Gavi</strong> - Pomocnik</li>
+            <li><strong>Pedri</strong> - Pomocnik</li>
+            <li><strong>Jules Koundé</strong> - Obrońca</li>
+            <li><strong>Andreas Christensen</strong> - Obrońca</li>
+            <li><strong>Raphinha</strong> - Skrzydłowy</li>
+            <li><strong>Ferran Torres</strong> - Skrzydłowy/Napastnik</li>
+            <li><strong>João Félix</strong> - Napastnik</li>
+            <li><strong>Sergi Roberto</strong> - Obrońca/Pomocnik</li>
+            <li><strong>Ilkay Gündogan</strong> - Pomocnik</li>
+            <li><strong>Inigo Martínez</strong> - Obrońca</li>
+            <li><strong>Ez Abde</strong> - Skrzydłowy</li>
+        </ul>
+    </section>
+
+    <!-- Prawa sekcja: Menu -->
+    <aside class="menu-panel">
+        <h2 class="menu-title">Menu:</h2>
+        <div class="menu-tiles">
+            <a href="index.html" class="menu-tile">Strona Główna</a>
+            <a href="tabela.html" class="menu-tile">Tabela</a>
+            <a href="historia-klubu.html" class="menu-tile">Historia Klubu</a>
+            <a href="osiagniecia.html" class="menu-tile">Osiągnięcia</a>
+            <a href="stadion.html" class="menu-tile">Stadion</a>
+            <a href="pilkarze.html" class="menu-tile active">Piłkarze</a>
+        </div>
+    </aside>
+</div>
+
+<footer class="main-footer">
+    <img src="stopka.png" alt="Stopka" class="footer-image">
+</footer>
+
+<!-- Skrypt JavaScript -->
+<script>
+    function filterPlayers() {
+        const filter = document.getElementById('playerFilter').value.toUpperCase();
+        const playerList = document.getElementById('playerList');
+        const players = playerList.getElementsByTagName('li');
+
+        for (let i = 0; i < players.length; i++) {
+            const playerName = players[i].textContent || players[i].innerText;
+            if (playerName.toUpperCase().indexOf(filter) > -1) {
+                players[i].style.display = "";
+            } else {
+                players[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+

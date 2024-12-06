@@ -1,0 +1,594 @@
+/* Ustawienia globalne */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Nowoczesny font */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #242424, #3a3a3a); /* Subtelne przejście kolorów */
+    color: #f5f5f5; /* Zwiększony kontrast */
+}
+
+/* Nagłówek */
+header {
+    text-align: center;
+    width: 100%;
+    height: 15%;
+    background: #A50044; /* Kolor FC Barcelony */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Kontener */
+.container {
+    display: flex;
+    flex: 1;
+    gap: 20px; /* Większy odstęp między panelami */
+    padding: 20px; /* Margines wewnętrzny kontenera */
+}
+
+/* Style paneli */
+.panel {
+    background-color: #2c2c2c;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Panel boczny lewy */
+#panel1 {
+    width: 20%;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Włącza przewijanie, jeśli treść jest za duża */
+}
+
+/* Panel główny */
+ #panel2 {
+    position: relative; /* Umożliwia precyzyjne pozycjonowanie dzieci */
+    width: 60%;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Panel boczny prawy */
+#panel3 {
+    width: 20%;
+    overflow-y: auto;
+}
+
+/* Menu kafelkowe */
+.tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tile {
+    background: linear-gradient(145deg, #A50044, #900023);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 15px 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tile:hover {
+    transform: scale(1.05); /* Subtelne powiększenie */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Styl cytatów */
+#quote {
+    font-size: 1.2em;
+    color: #FFD700; /* Złoty kolor */
+    margin-bottom: 10px;
+}
+
+/* Banner */
+#bannerText {
+    font-size: 1.8em;
+    color: #A50044;
+    text-shadow: 2px 2px #004D98;
+    animation: colorChange 5s infinite, moveUpDown 2s infinite;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#bannerText:hover {
+    transform: scale(1.2);
+}
+
+/* Zegarek */
+#zegarek {
+    font-size: 1.5em;
+    color: #FFD700; /* Złoty kolor */
+    margin-bottom: 10px;
+}
+
+/* Animacje */
+@keyframes colorChange {
+    0% { color: #A50044; }
+    25% { color: #004D98; }
+    50% { color: #FFD700; }
+    75% { color: #A50044; }
+    100% { color: #004D98; }
+}
+
+@keyframes moveUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Stopka */
+footer {
+    text-align: center;
+    width: 100%;
+    height: 15%;
+    background: #A50044;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Obraz w nagłówku */
+header img {
+    width: 100%; /* Obraz zajmuje pełną szerokość kontenera */
+    height: 100%; /* Obraz zajmuje pełną wysokość kontenera */
+    object-fit: cover; /* Dopasowanie obrazu do kontenera bez deformacji */
+}
+
+/* Obraz w stopce */
+footer img {
+    width: 100%; /* Obraz zajmuje pełną szerokość kontenera */
+    height: 100%; /* Obraz zajmuje pełną wysokość kontenera */
+    object-fit: cover; /* Dopasowanie obrazu do kontenera bez deformacji */
+}
+.match {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Rozdziela logotypy drużyn */
+    margin-bottom: 15px;
+    background-color: #424242;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.match:hover {
+    transform: scale(1.05);
+}
+
+/* Logo drużyn */
+.team-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%; /* Zaokrąglone logo */
+    border: 2px solid #A50044; /* Granatowo-czerwony kolor */
+}
+
+/* Szczegóły meczu */
+.match-details {
+    text-align: center;
+    flex: 1; /* Rozciąga szczegóły meczu między logo drużyn */
+    margin: 0 10px;
+}
+
+.match-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #FFD700; /* Złoty akcent */
+}
+.top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right; /* Wyrównuje tekst do prawej */
+}
+.bottom-quote {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center; /* Centruje cytaty i przycisk */
+}
+button {
+    background-color: #A50044;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #900023;
+}
+/* Sekcja powitalna */
+.welcome-section {
+    padding: 20px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Nagłówki */
+.welcome-title {
+    font-size: 2.5em;
+    color: #A50044;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #004D98;
+}
+
+.welcome-subtitle {
+    font-size: 1.5em;
+    text-align: center;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+/* Tekst sekcji */
+.welcome-text, .mission-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Sekcja cech */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    background-color: #424242;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1em;
+    color: #FFD700;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Misja */
+.mission-title {
+    font-size: 1.8em;
+    color: #A50044;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Call to action */
+.cta {
+    font-size: 1.2em;
+    text-align: center;
+    color: #FFD700;
+    font-weight: bold;
+    margin-top: 20px;
+    background-color: #A50044;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+header.main-header {
+    text-align: center;
+    background-color: #A50044;
+    padding: 10px 0;
+}
+.main-container {
+    display: flex;
+    margin: 20px;
+    gap: 20px;
+}
+
+/* Sekcja treści */
+.content-panel {
+    flex: 3;
+    background-color: #424242;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    font-size: 2em;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Tabela ligi */
+.league-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.league-table th,
+.league-table td {
+    border: 1px solid #FFD700;
+    text-align: center;
+    padding: 10px;
+}
+
+.league-table th {
+    background-color: #A50044;
+    color: white;
+    font-weight: bold;
+}
+
+.league-table tr:nth-child(even) {
+    background-color: #333333;
+}
+
+/* Sekcja menu */
+.menu-panel {
+    flex: 1;
+    background-color: #424242;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu-title {
+    font-size: 1.8em;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-tile {
+    background-color: #A50044;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu-tile:hover {
+    background-color: #900023;
+    transform: translateY(-3px);
+}
+
+/* Stopka */
+footer.main-footer {
+    text-align: center;
+    background-color: #A50044;
+    padding: 10px 0;
+}
+.menu-tile.active {
+    background-color: #FFD700;
+    color: #333333;
+    font-weight: bold;
+}
+.stadium-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.stadium-image:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555555;
+    margin-top: 10px;
+}
+.league-table tr:hover {
+    background-color: #f1f1f1;
+    color:black;
+}
+
+.league-table .leader {
+    background-color: #FFD700;
+    font-weight: bold;
+
+}
+/* Zaciemnienie tła */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: black;
+}
+
+/* Gdy modal jest aktywny */
+.popup-overlay.active .popup-content {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Przycisk zamykania */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #A50044;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #004D98;
+}
+
+
+/* Stylizacja formularza kontaktowego */
+.contact-form-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form-container button {
+    width: 100%;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form-container button:hover {
+    background-color: #003399;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #A50044;
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #A50044;
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #A50044;
+    }
+}
+
+/* Zastosowanie animacji */
+.section-title {
+    animation: pulse 2s infinite;
+}
+.contact-form-container {
+    background-color: #f9f9f9; /* Jasne tło dla subtelności */
+    padding: 20px; /* Wewnętrzny odstęp */
+    margin: 20px auto; /* Zewnętrzny odstęp, aby nie nachodzić na inne elementy */
+    border-radius: 8px; /* Zaokrąglone rogi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtelny cień dla efektu uniesienia */
+    max-width: 400px; /* Ograniczenie szerokości */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.contact-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333; /* Neutralny kolor czcionki */
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%; /* Dopasowanie do szerokości kontenera */
+    padding: 10px; /* Wewnętrzny odstęp */
+    margin: 10px 0; /* Zewnętrzny odstęp */
+    border: 1px solid #ccc; /* Subtelna ramka */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    font-size: 14px; /* Przyjemny rozmiar czcionki */
+}
+
+#contactForm button {
+    background-color: #007bff; /* Kolor przycisku - możesz zmienić na kolor klubowy */
+    color: #fff; /* Kontrastujący kolor tekstu */
+    border: none; /* Bez obramowania */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    padding: 10px 15px; /* Wewnętrzny odstęp */
+    font-size: 16px;
+    cursor: pointer; /* Wskaźnik na przycisk */
+    transition: background-color 0.3s ease; /* Płynna zmiana koloru przy hover */
+}
+
+#contactForm button:hover {
+    background-color: #0056b3; /* Ciemniejszy odcień przy hover */
+}
+
+#formMessage {
+    font-size: 14px;
+    font-weight: bold;
+    color: #28a745; /* Zielony kolor dla pozytywnego feedbacku */
+}
+
+.contact-form-container textarea {
+    resize: none; /* Wyłączenie zmiany rozmiaru */
+    min-height: 60px; /* Minimalna wysokość */
+}

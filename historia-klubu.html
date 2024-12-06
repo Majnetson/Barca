@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Klubu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <img src="header.png" alt="Nagłówek" class="header-image">
+</header>
+
+<div class="main-container">
+    <!-- Lewa sekcja: Treść historii -->
+    <section class="content-panel">
+        <h2 class="section-title">Historia FC Barcelona</h2>
+        <p class="section-description">
+            FC Barcelona to nie tylko klub piłkarski, ale także symbol kultury, tradycji i pasji. 
+            Dowiedz się, jak historia klubu ewoluowała od jego założenia w 1899 roku do współczesności.
+        </p>
+        <div class="history-content">
+            <h3>Początki Klubu</h3>
+            <p>
+                Klub został założony 29 listopada 1899 roku przez grupę szwajcarskich, brytyjskich i hiszpańskich 
+                entuzjastów piłki nożnej z Hansem Gamperem na czele. Już od pierwszych lat istnienia klub odgrywał ważną 
+                rolę w lokalnej społeczności.
+            </p>
+            <h3>Kluczowe Moment w Historii</h3>
+            <p>
+                W 1974 roku, w setną rocznicę narodzin Johana Cruyffa, klub zdobył swoje pierwsze europejskie trofeum. 
+                Od tego czasu FC Barcelona stała się jedną z najbardziej rozpoznawalnych marek sportowych na świecie.
+            </p>
+            <h3>Era Nowoczesna</h3>
+            <p>
+                W erze Lionela Messiego, Xaviego i Iniesty, Barcelona zdominowała europejską piłkę, zdobywając 
+                wiele tytułów La Liga, Ligi Mistrzów i innych prestiżowych trofeów.
+            </p>
+            <button id="infoButton" style="margin: 20px;">Dowiedz się więcej o FC Barcelonie</button>
+
+<div id="infoPopup" class="popup-overlay">
+    <div class="popup-content">
+        <button id="closePopup" class="close-button">&times;</button>
+        <h3>FC Barcelona</h3>
+        <p>FC Barcelona to symbol katalońskiej kultury i tradycji, założony w 1899 roku. Klub jest jednym z najbardziej utytułowanych na świecie!</p>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Funkcja otwierania okienka
+    $('#infoButton').click(function() {
+        $('#infoPopup').addClass('active').fadeIn();
+        $('body').css('overflow', 'hidden'); // Blokada przewijania strony
+    });
+
+    // Funkcja zamykania okienka
+    $('#closePopup, #infoPopup').click(function(event) {
+        // Zapobiegamy zamknięciu, jeśli kliknięto w treść
+        if ($(event.target).is('#infoPopup, #closePopup')) {
+            $('#infoPopup').removeClass('active').fadeOut();
+            $('body').css('overflow', 'auto'); // Odblokowanie przewijania
+        }
+    });
+});
+</script>
+
+        </div>
+    </section>
+
+    <!-- Prawa sekcja: Menu -->
+    <aside class="menu-panel">
+        <h2 class="menu-title">Menu:</h2>
+        <div class="menu-tiles">
+            <a href="index.html" class="menu-tile">Strona Główna</a>
+            <a href="tabela.html" class="menu-tile">Tabela</a>
+            <a href="historia-klubu.html" class="menu-tile active">Historia Klubu</a>
+            <a href="osiagniecia.html" class="menu-tile">Osiągnięcia</a>
+            <a href="stadion.html" class="menu-tile">Stadion</a>
+            <a href="pilkarze.html" class="menu-tile">Piłkarze</a>
+        </div>
+    </aside>
+</div>
+
+<footer class="main-footer">
+    <img src="stopka.png" alt="Stopka" class="footer-image">
+</footer>
+
+</body>
+</html>

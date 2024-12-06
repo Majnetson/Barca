@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z Podziałem</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<header>
+    <img src="header.png" id="glowa" alt="glowa">
+</header>
+
+<div class="container">
+    <div class="panel" id="panel1">
+    <h2>Nadchodzące mecze:</h2>
+
+    <div class="match">
+        <img src="barcelona_logo.png" alt="Barcelona Logo" class="team-logo">
+        <div class="match-details">
+            <p><strong>FC Barcelona vs Real Madrid</strong></p>
+            <p>Data: 2024-11-25</p>
+            <p>Godzina: 21:00</p>
+            <p>Miejsce: Camp Nou</p>
+        </div>
+        <img src="real_madrid_logo.png" alt="Real Madrid Logo" class="team-logo">
+    </div>
+
+    <div class="match">
+        <img src="barcelona_logo.png" alt="Barcelona Logo" class="team-logo">
+        <div class="match-details">
+            <p><strong>FC Barcelona vs Atlético Madrid</strong></p>
+            <p>Data: 2024-12-01</p>
+            <p>Godzina: 19:00</p>
+            <p>Miejsce: Wanda Metropolitano</p>
+        </div>
+        <img src="atletico_logo.png" alt="Atlético Madrid Logo" class="team-logo">
+    </div>
+</div>    <div class="panel" id="panel2">
+    <div class="top-right">
+        <div id="zegarek"></div>
+        <h1 id="bannerText">Més que un club</h1><br>
+    </div>
+<!-- JavaScript -->
+<script>
+const quotes = [
+    "Més que un club. - FC Barcelona",
+    "W Barcelonie nie gramy w piłkę nożną, my ją kochamy. - Johan Cruyff",
+    "Talent wygrywa mecze, ale praca zespołowa wygrywa mistrzostwa. - Leo Messi",
+    "Barca to rodzina, klub piłkarski i kultura w jednym. - Xavi Hernández",
+    "Wiara w młodych zawodników to klucz do sukcesu. - Pep Guardiola"
+];
+
+function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById('quote').textContent = quotes[randomIndex];
+}
+</script>
+  <div class="contact-form-container">
+            <h2 class="contact-title">Skontaktuj się z nami</h2>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Twoje imię" required>
+                <input type="email" id="email" name="email" placeholder="Twój e-mail" required>
+                <textarea id="message" name="message" rows="3" placeholder="Twoja wiadomość" required></textarea>
+                <button type="submit">Wyślij</button>
+            </form>
+            <p id="formMessage" style="display: none; color: green; margin-top: 10px;">Dziękujemy za kontakt!</p>
+        </div>
+<div class="welcome-section">
+    <br><br>
+    <h1 class="welcome-title">Witaj w świecie FC Barcelony!</h1>
+    <p class="welcome-subtitle"><strong>Més que un club – Więcej niż klub.</strong></p>
+    <p class="welcome-text">
+        To nie tylko hasło, to dusza naszej wspólnoty, która od pokoleń jednoczy fanów na całym świecie. 
+        FC Barcelona to coś więcej niż piłka nożna – to pasja, tradycja i niepowtarzalny styl gry.
+    </p>
+
+    <div class="features">
+        <div class="feature-item">
+            💙 <strong>Bądź na bieżąco: </strong> Najnowsze wiadomości, wyniki i informacje o nadchodzących meczach.
+        </div>
+        <div class="feature-item">
+            ❤️ <strong>Odkryj historię: </strong> Legendarne chwile, które zapisały się złotymi literami w historii futbolu.
+        </div>
+        <div class="feature-item">
+            💛 <strong>Poznaj bohaterów:</strong> Zawodników, którzy na boisku tworzą magię – od dawnych legend po wschodzące gwiazdy.
+        </div>
+        <div class="feature-item">
+            💙 <strong>Poczuj dumę: </strong> Dziel się emocjami z innymi kibicami, tworząc globalną rodzinę Barçy.
+        </div>
+    </div>
+
+    <h2 class="mission-title">Nasza misja</h2>
+    <p class="mission-text">
+        Camp Nou nie jest tylko stadionem, to miejsce, gdzie rodzą się marzenia. Każdy gol, każda akcja i każde zwycięstwo 
+        są świadectwem naszej determinacji i ducha zespołu. Wspólnie celebrujemy sukcesy i wyzwania, bo Barca to coś więcej niż sport – 
+        to styl życia.
+    </p>
+
+    <p class="cta">Czy jesteś gotowy poczuć magię Barcelony? Wkrocz do świata, gdzie futbol to sztuka, a każdy kibic jest częścią wyjątkowej historii.</p>
+</div>
+<script>
+         function zegar() {
+                const data = new Date();
+                const godzina = data.getHours().toString().padStart(2, '0');
+                const min = data.getMinutes().toString().padStart(2, '0');
+                const sek = data.getSeconds().toString().padStart(2, '0');
+                document.getElementById("zegarek").textContent = `${godzina}:${min}:${sek}`;
+                setTimeout(zegar, 1000);
+            }
+            zegar();
+</script>
+
+
+<script>
+$(document).ready(function() {
+    // Funkcja wyświetlająca tekst znak po znaku
+    const text = "Més que un club";
+    let index = 0;
+    const speed = 100; // Szybkość pojawiania się znaków
+
+    function typeText() {
+        if (index < text.length) {
+            $('#bannerText').append(text[index]);
+            index++;
+            setTimeout(typeText, speed);
+        }
+    }
+
+    // Rozpoczynamy efekt pisania po załadowaniu strony
+    $('#bannerText').text(''); // Wyczyść tekst przed animacją
+    typeText();
+});
+</script>
+<br><br>
+    <div class="bottom-quote">
+        <div id="quote"></div>
+        <button onclick="getRandomQuote()">Losowy cytat</button>
+    </div>
+</div>
+    <div class="panel" id="panel3">
+        <h2>Menu:</h2>
+        <div class="tiles">
+            <a href="index.html" class="tile">Strona Główna</a>
+            <a href="tabela.html" class="tile">Tabela</a>
+            <a href="historia-klubu.html" class="tile">Historia Klubu</a>
+            <a href="osiagniecia.html" class="tile">Osiągnięcia</a>
+            <a href="stadion.html" class="tile">Stadion</a>
+            <a href="pilkarze.html" class="tile">Piłkarze</a>
+            
+
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function() {
+    // Obsługa formularza kontaktowego
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault(); // Zapobiega przeładowaniu strony
+        $('#formMessage').fadeIn().delay(3000).fadeOut(); // Pokaż komunikat o wysłaniu
+        this.reset(); // Resetuj formularz
+    });
+});
+</script>
+
+<footer>
+   <img src="stopka.png" id="stopka" alt="stopa">
+</footer>
+
+</body>
+</html>
